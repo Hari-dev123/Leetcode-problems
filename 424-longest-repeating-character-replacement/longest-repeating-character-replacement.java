@@ -11,11 +11,9 @@ class Solution {
             maxCount = Math.max(maxCount, arr[ch- 'A']);  
 
             
-            while ((right - left + 1) - maxCount > k) {
+            if ((right - left + 1) - maxCount > k) {
                  arr[s.charAt(left) - 'A']--;
-                 for(int i=0;i<arr.length;i++){
-                    maxCount = Math.max(maxCount,arr[i]);
-                 }
+                
                  left++;
             }
 
