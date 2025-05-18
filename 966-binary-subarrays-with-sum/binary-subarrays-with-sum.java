@@ -1,19 +1,17 @@
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
-         return findGoal(nums,goal) - findGoal(nums,goal-1);
-    }
-    static int findGoal(int arr[],int g){
-          int l = 0 , r = 0 , c = 0 , sum = 0;
-          if(g < 0) return 0;
-          while(r < arr.length){
-              sum += arr[r];
-              while(sum > g){
-                   sum -= arr[l];
-                   l++;
-              }
-              c += r - l + 1;
-              r++;
-          }
-          return c;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);  // base case: sum 0 has occurred once
+        int sum = 0, count = 0;
+
+        for (int num : nums) {
+            sum += num;
+
+            count += map.getOrDefault(sum - goal, 0);
+
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+
+        return count;
     }
 }
