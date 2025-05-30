@@ -7,7 +7,7 @@ class Solution {
 
         int wordLen = words[0].length();
         int wordC = words.length;
-        int totalLen = wordLen * wordC;
+        
 
         HashMap<String, Integer> originalC = new HashMap<>();
         for (String str : words) {
