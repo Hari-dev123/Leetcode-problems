@@ -1,4 +1,5 @@
 class Solution {
+    
     public String minWindow(String s, String t) {
         int left = 0 , right = 0 ,count = 0 , minLen = Integer.MAX_VALUE , startIdx = -1;
         int arr[] = new int[128];
